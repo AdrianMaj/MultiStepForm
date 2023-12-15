@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-const BottomPanel: React.FC<{ stepNumber: number }> = props => {
+const BottomPanel: React.FC<{ stepNumber: number; onFormInfo?: () => void }> = props => {
 	const MotionLink = motion(Link)
 	return (
 		<div className="bottom-panel">
@@ -15,6 +15,7 @@ const BottomPanel: React.FC<{ stepNumber: number }> = props => {
 				whileHover={{
 					backgroundColor: '#011a66',
 				}}
+				onClick={props.onFormInfo ? props.onFormInfo : undefined}
 				to={`/step-${props.stepNumber + 1}`}>
 				Next Step
 			</MotionLink>

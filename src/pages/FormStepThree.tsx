@@ -8,7 +8,9 @@ const FormStepThree = () => {
 		<>
 			<StepNumber pageNumber={3} />
 			<AppForm title="Pick add-ons" text="Add-ons help enhance your gaming experience">
-				<AddOnCheck />
+				<AddOnCheck title="Online service" text="Access to multiplayer games" price={1} />
+				<AddOnCheck title="Larger storage" text="Extra 1TB of cloud save" price={2} />
+				<AddOnCheck title="Customizable profile" text="Custom theme on your profile" price={3} />
 			</AppForm>
 			<BottomPanel stepNumber={3} />
 		</>

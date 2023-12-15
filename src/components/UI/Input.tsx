@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 type InputPropsType = {
 	inputType: string
@@ -6,15 +6,24 @@ type InputPropsType = {
 	label: string
 }
 
-const Input: React.FC<InputPropsType> = ({ inputType, placeholder, label }) => {
+const Input: React.FC<InputPropsType> = forwardRef<HTMLInputElement, InputPropsType>(function Input(
+	props,
+	forwardedRef
+) {
 	return (
 		<div className="input">
-			<label className="input__label" htmlFor={label}>
-				{label}
+			<label className="input__label" htmlFor={props.label}>
+				{props.label}
 			</label>
-			<input className="input__text" id={label} type={inputType} placeholder={placeholder} />
+			<input
+				ref={forwardedRef}
+				className="input__text"
+				id={props.label}
+				type={props.inputType}
+				placeholder={props.placeholder}
+			/>
 		</div>
 	)
-}
+})
 
 export default Input

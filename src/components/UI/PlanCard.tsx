@@ -9,15 +9,15 @@ const PlanCard: React.FC<{
 	price: number
 }> = props => {
 	const isYearly = useAppSelector(state => state.planMode.isYearly)
-	const planVersion = useAppSelector(state => state.planMode.planVersion)
+	const planVersionTitle = useAppSelector(state => state.planMode.planVersion.title)
 	const dispatch = useAppDispatch()
 
 	const handleChoose = () => {
-		dispatch(planModeActions.choosePlan({ planName: props.title }))
+		dispatch(planModeActions.choosePlan({ planName: props.title, planPrice: props.price }))
 	}
 
 	return (
-		<div onClick={handleChoose} className={`plan-card ${planVersion === props.title ? 'active' : ''}`}>
+		<div onClick={handleChoose} className={`plan-card ${planVersionTitle === props.title ? 'active' : ''}`}>
 			<img className="plan-card__image" src={`src/assets/images/${props.imageName}`} alt={props.alt} />
 			<div className="plan-card__text">
 				<h3 className="plan-card__title">{props.title}</h3>
