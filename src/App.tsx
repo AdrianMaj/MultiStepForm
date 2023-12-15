@@ -3,6 +3,7 @@ import RootLayout from './pages/RootLayout'
 import FormStepOne from './pages/FormStepOne'
 import FormStepTwo from './pages/FormStepTwo'
 import FormStepThree from './pages/FormStepThree'
+import FormStepFour from './pages/FormStepFour'
 
 const App = () => {
 	const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const App = () => {
 				{
 					path: 'step-3',
 					element: <FormStepThree />,
+				},
+				{
+					path: 'step-4',
+					element: <FormStepFour />,
 				},
 			],
 		},

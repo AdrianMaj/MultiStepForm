@@ -11,9 +11,10 @@ const PlanCard: React.FC<{
 	const isYearly = useAppSelector(state => state.planMode.isYearly)
 	const planVersionTitle = useAppSelector(state => state.planMode.planVersion.title)
 	const dispatch = useAppDispatch()
+	const price = isYearly ? props.price * 10 : props.price
 
 	const handleChoose = () => {
-		dispatch(planModeActions.choosePlan({ planName: props.title, planPrice: props.price }))
+		dispatch(planModeActions.choosePlan({ planName: props.title, planPrice: price }))
 	}
 
 	return (
@@ -21,7 +22,7 @@ const PlanCard: React.FC<{
 			<img className="plan-card__image" src={`src/assets/images/${props.imageName}`} alt={props.alt} />
 			<div className="plan-card__text">
 				<h3 className="plan-card__title">{props.title}</h3>
-				<p className="plan-card__price">{`$${isYearly ? props.price * 10 : props.price}/${isYearly ? 'yr' : 'mo'}`}</p>
+				<p className="plan-card__price">{`$${price}/${isYearly ? 'yr' : 'mo'}`}</p>
 				{isYearly && <p className="plan-card__free">2 months free</p>}
 			</div>
 		</div>

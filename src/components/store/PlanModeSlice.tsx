@@ -4,6 +4,7 @@ const initialState: {
 	isYearly: boolean
 	planVersion: { title: string; price: number }
 	planAddOns: { title: string; price: number }[]
+	inputValues: { [key: string]: string }
 } = {
 	isYearly: false,
 	planVersion: {
@@ -11,6 +12,7 @@ const initialState: {
 		price: 0,
 	},
 	planAddOns: [],
+	inputValues: { name: '', email: '', phoneNumber: '' },
 }
 
 export const planMode = createSlice({
@@ -19,6 +21,8 @@ export const planMode = createSlice({
 	reducers: {
 		togglePlan(state) {
 			state.isYearly = !state.isYearly
+			state.planVersion = initialState.planVersion
+			state.planAddOns = initialState.planAddOns
 		},
 		choosePlan(state, action) {
 			state.planVersion.title = action.payload.planName
@@ -37,6 +41,11 @@ export const planMode = createSlice({
 				return addOn.title !== recievedAddOn.title
 			})
 			state.planAddOns = result
+		},
+		changeValue(state, action) {
+			const inputId: string = action.payload.inputId
+			const inputValue: string = action.payload.inputValue
+			state.inputValues[inputId] = inputValue
 		},
 	},
 })
