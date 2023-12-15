@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState: { isYearly: boolean } = {
+const initialState: { isYearly: boolean; planVersion: string } = {
 	isYearly: false,
+	planVersion: '',
 }
 
 export const planMode = createSlice({
@@ -10,6 +11,9 @@ export const planMode = createSlice({
 	reducers: {
 		togglePlan(state) {
 			state.isYearly = !state.isYearly
+		},
+		choosePlan(state, action) {
+			state.planVersion = action.payload.planName
 		},
 	},
 })

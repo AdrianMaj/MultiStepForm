@@ -2,6 +2,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './pages/RootLayout'
 import FormStepOne from './pages/FormStepOne'
 import FormStepTwo from './pages/FormStepTwo'
+import FormStepThree from './pages/FormStepThree'
 
 const App = () => {
 	const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const App = () => {
 				{
 					path: 'step-2',
 					element: <FormStepTwo />,
+				},
+				{
+					path: 'step-3',
+					element: <FormStepThree />,
 				},
 			],
 		},

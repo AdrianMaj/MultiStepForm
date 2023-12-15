@@ -163,3 +163,34 @@ body {
 		background-color: #f8f9fe;
 	}
 }
+.mode-switch {
+	background-color: $background;
+	padding: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__text {
+		font-size: 1.2rem;
+		font-weight: 500;
+		&--month {
+			color: $grenadeblue;
+		}
+		&--year {
+			color: $subtext;
+		}
+	}
+	&__button {
+		margin: 0 2em;
+		display: flex;
+		width: 18%;
+		padding: 0.4em;
+		border-radius: 16px;
+		background-color: $grenadeblue;
+	}
+	&__button-circle {
+		background-color: #fff;
+		border-radius: 50%;
+		width: 12px;
+		height: 12px;
+	}
+}

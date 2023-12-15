@@ -8,15 +8,17 @@ const ModeSwitch = () => {
 	const handleSwitchMode = () => {
 		dispatch(planModeActions.togglePlan())
 	}
-	const classes: string = 'rounded-full bg-white w-3 h-3 mx-1'
 
 	return (
-		<div onClick={handleSwitchMode}>
-			<p>Monthly</p>
-			<div>
-				<motion.div layout className={classes}></motion.div>
+		<div className="mode-switch">
+			<p className="mode-switch__text mode-switch__text--month">Monthly</p>
+			<div
+				style={{ justifyContent: isYearly ? 'flex-end' : 'flex-start' }}
+				className="mode-switch__button"
+				onClick={handleSwitchMode}>
+				<motion.div className="mode-switch__button-circle"></motion.div>
 			</div>
-			<p>Yearly</p>
+			<p className="mode-switch__text mode-switch__text--year">Yearly</p>
 		</div>
 	)
 }
