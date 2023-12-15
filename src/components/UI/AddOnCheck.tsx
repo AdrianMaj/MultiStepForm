@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import { planModeActions } from '../store/PlanModeSlice'
 
@@ -5,22 +6,24 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 	const isYearly = useAppSelector(state => state.planMode.isYearly)
 	const selectedAddOns = useAppSelector(state => state.planMode.planAddOns)
 	const dispatch = useAppDispatch()
-	let isActive = false
+	const [isActive, setIsActive] = useState(false)
 	const price = isYearly ? props.price * 10 : props.price
 	const addOn = {
 		title: props.title,
 		price: price,
 	}
+	const existingAddOn = selectedAddOns.find(item => item.title === addOn.title)
 
 	const toggleAddOn = () => {
-		if (selectedAddOns.includes(addOn)) {
-			dispatch(planModeActions.removeAddOn(addOn))
-			isActive = false
+		if (existingAddOn) {
+			dispatch(planModeActions.removeAddOn({ addOn }))
+			setIsActive(false)
 		} else {
-			dispatch(planModeActions.addAddOn(addOn))
-			isActive = true
+			dispatch(planModeActions.addAddOn({ addOn }))
+			setIsActive(true)
 		}
 	}
+	console.log(selectedAddOns)
 
 	return (
 		<div onClick={toggleAddOn} className={`add-on ${isActive ? 'active' : ''}`}>
@@ -31,11 +34,11 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 					width="20"
 					height="20"
 					viewBox="0 0 24 24"
-					stroke-width="3"
+					strokeWidth="3"
 					stroke="white"
 					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round">
+					strokeLinecap="round"
+					strokeLinejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M5 12l5 5l10 -10" />
 				</svg>

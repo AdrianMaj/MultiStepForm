@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState: { isYearly: boolean; planVersion: { title: string; price: number }; planAddOns: object[] } = {
+const initialState: {
+	isYearly: boolean
+	planVersion: { title: string; price: number }
+	planAddOns: { title: string; price: number }[]
+} = {
 	isYearly: false,
 	planVersion: {
 		title: '',
@@ -30,7 +34,7 @@ export const planMode = createSlice({
 		removeAddOn(state, action) {
 			const recievedAddOn = action.payload.addOn
 			const result = state.planAddOns.filter(addOn => {
-				return addOn !== recievedAddOn
+				return addOn.title !== recievedAddOn.title
 			})
 			state.planAddOns = result
 		},
