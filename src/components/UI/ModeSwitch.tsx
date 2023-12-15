@@ -1,5 +1,6 @@
 import { planModeActions } from '../store/PlanModeSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
+import { motion } from 'framer-motion'
 
 const ModeSwitch = () => {
 	const dispatch = useAppDispatch()
@@ -7,15 +8,15 @@ const ModeSwitch = () => {
 	const handleSwitchMode = () => {
 		dispatch(planModeActions.togglePlan())
 	}
-	const active: string = 'rounded-full bg-white w-3 h-3 ml-1 mr-1'
-	const unactive: string = 'rounded-full bg-white w-3 h-3 ml-1 mr-1'
+	const classes: string = 'rounded-full bg-white w-3 h-3 mx-1'
+
 	return (
-		<div onClick={handleSwitchMode} className="bg-background flex justify-center gap-6 p-3 mt-4">
-			<p className="text-xs font-medium text-grenadeBlue">Monthly</p>
-			<div className="w-10 bg-grenadeBlue rounded-full h-5 flex justify-start items-center">
-				<div className={isYearly ? unactive : active}></div>
+		<div onClick={handleSwitchMode}>
+			<p>Monthly</p>
+			<div>
+				<motion.div layout className={classes}></motion.div>
 			</div>
-			<p className="text-xs font-medium text-gray-400">Yearly</p>
+			<p>Yearly</p>
 		</div>
 	)
 }

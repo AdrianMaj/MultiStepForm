@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 const RootLayout: React.FC = () => {
 	return (
-		<div className="bg-background h-screen top-0">
+		<div className="root">
 			<Outlet />
 		</div>
 	)
