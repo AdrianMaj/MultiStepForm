@@ -4,6 +4,9 @@ import BottomPanel from '../components/UI/BottomPanel'
 import StepNumber from '../components/UI/StepNumber'
 
 const FormStepThree = () => {
+	const handleValidation = () => {
+		return true
+	}
 	return (
 		<>
 			<StepNumber pageNumber={3} />
@@ -12,7 +15,7 @@ const FormStepThree = () => {
 				<AddOnCheck title="Larger storage" text="Extra 1TB of cloud save" price={2} />
 				<AddOnCheck title="Customizable profile" text="Custom theme on your profile" price={3} />
 			</AppForm>
-			<BottomPanel stepNumber={3} />
+			<BottomPanel valdiationFn={handleValidation} stepNumber={3} />
 		</>
 	)
 }

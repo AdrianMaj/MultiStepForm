@@ -3,9 +3,21 @@ import AppForm from '../components/UI/AppForm'
 import ModeSwitch from '../components/UI/ModeSwitch'
 import PlanCard from '../components/UI/PlanCard'
 import StepNumber from '../components/UI/StepNumber'
+import { useAppSelector } from '../hooks/hooks'
+import { useState } from 'react'
 // import { motion } from 'framer-motion'
 
 const FormStepOne = () => {
+	const planVersion = useAppSelector(state => state.planMode.planVersion)
+	const [error, setError] = useState('')
+	const handleValidation = () => {
+		if (planVersion.title !== '') {
+			return true
+		} else {
+			setError('You must select plan before continuing!')
+			return false
+		}
+	}
 	return (
 		<>
 			<StepNumber pageNumber={2} />
@@ -14,8 +26,9 @@ const FormStepOne = () => {
 				<PlanCard imageName="icon-advanced.svg" title="Advanced" price={12} alt="Red photo of gamepad" />
 				<PlanCard imageName="icon-pro.svg" title="Pro" price={15} alt="Blue photo of gamepad" />
 				<ModeSwitch />
+				{error !== '' && <p className="error">{error}</p>}
 			</AppForm>
-			<BottomPanel stepNumber={2} />
+			<BottomPanel valdiationFn={handleValidation} stepNumber={2} />
 		</>
 	)
 }

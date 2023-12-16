@@ -5,6 +5,7 @@ const initialState: {
 	planVersion: { title: string; price: number }
 	planAddOns: { title: string; price: number }[]
 	inputValues: { [key: string]: string }
+	isError: boolean
 } = {
 	isYearly: false,
 	planVersion: {
@@ -13,6 +14,7 @@ const initialState: {
 	},
 	planAddOns: [],
 	inputValues: { name: '', email: '', phoneNumber: '' },
+	isError: false,
 }
 
 export const planMode = createSlice({
@@ -46,6 +48,12 @@ export const planMode = createSlice({
 			const inputId: string = action.payload.inputId
 			const inputValue: string = action.payload.inputValue
 			state.inputValues[inputId] = inputValue
+		},
+		showValidationError(state) {
+			state.isError = true
+		},
+		hideValidationError(state) {
+			state.isError = false
 		},
 	},
 })
