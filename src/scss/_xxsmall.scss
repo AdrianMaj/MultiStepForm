@@ -121,6 +121,7 @@ body {
 	display: flex;
 	justify-content: flex-end;
 	&__btn {
+		border: none;
 		font-size: 1.4rem;
 		padding: 0.8em 1.2em;
 		border-radius: 5px;

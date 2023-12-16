@@ -10,7 +10,7 @@ const FormStepFour = () => {
 			<AppForm title="Finishing up" text="Double-check everything before confirming">
 				<Checkout />
 			</AppForm>
-			<BottomPanel stepNumber={4} />
+			<BottomPanel valdiationFn={() => true} stepNumber={4} />
 		</>
 	)
 }

@@ -4,7 +4,7 @@ const sendToBackend = async (formData: {
 	planAddOns: { title: string; price: number }[]
 	inputValues: { [key: string]: string }
 }) => {
-	const response = await fetch(`https://multistepform-3ff9b-default-rtdb.firebaseio.com/data`, {
+	const response = await fetch(`https://multistepform-205c9-default-rtdb.firebaseio.com/`, {
 		method: 'POST',
 		body: JSON.stringify(formData),
 		headers: {
@@ -13,7 +13,7 @@ const sendToBackend = async (formData: {
 	})
 
 	if (!response.ok) {
-		const error = new Error('An error occurred while creating the event')
+		const error = new Error('An error occurred while sending form data to Firebase!')
 		throw error
 	}
 

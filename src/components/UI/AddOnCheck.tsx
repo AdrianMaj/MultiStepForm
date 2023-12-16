@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import { planModeActions } from '../store/PlanModeSlice'
 
@@ -6,7 +5,6 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 	const isYearly = useAppSelector(state => state.planMode.isYearly)
 	const selectedAddOns = useAppSelector(state => state.planMode.planAddOns)
 	const dispatch = useAppDispatch()
-	const [isActive, setIsActive] = useState(false)
 	const price = isYearly ? props.price * 10 : props.price
 	const addOn = {
 		title: props.title,
@@ -17,15 +15,13 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 	const toggleAddOn = () => {
 		if (existingAddOn) {
 			dispatch(planModeActions.removeAddOn({ addOn }))
-			setIsActive(false)
 		} else {
 			dispatch(planModeActions.addAddOn({ addOn }))
-			setIsActive(true)
 		}
 	}
 
 	return (
-		<div onClick={toggleAddOn} className={`add-on ${isActive ? 'active' : ''}`}>
+		<div onClick={toggleAddOn} className={`add-on ${existingAddOn ? 'active' : ''}`}>
 			<div className="add-on__checkbox active">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
