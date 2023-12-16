@@ -1,244 +1,102 @@
-@use './variables' as *;
-@font-face {
-	font-family: 'Ubuntu';
-	font-weight: bold;
-	src: url('./src/assets/fonts/Ubuntu-Bold.ttf');
-}
-@font-face {
-	font-family: 'Ubuntu';
-	font-weight: 500;
-	src: url('./src/assets/fonts/Ubuntu-Medium.ttf');
-}
-@font-face {
-	font-family: 'Ubuntu';
-	font-weight: normal;
-	src: url('./src/assets/fonts/Ubuntu-Regular.ttf');
-}
+@use 'variables' as *;
+@media (min-width: 375px) {
+	.steps {
+		padding-top: 2em;
+		padding-bottom: 8em;
+		&__step-indicator {
+			width: 36px;
+			height: 36px;
+			font-size: 1.8rem;
+		}
+	}
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-size: 10px;
-}
-body {
-	font-family: 'Ubuntu';
-	font-size: 1.6rem;
-}
-
-.root {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	background-color: $background;
-	z-index: 2;
-	min-height: 100svh;
-}
-
-.steps {
-	display: flex;
-	justify-content: center;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: -1;
-	padding-top: 2em;
-	padding-bottom: 8em;
-	background-size: cover;
-	background-image: url('../assets/images/bg-sidebar-mobile.svg');
-	&__step-indicator {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: 0 0.5em;
-		width: 32px;
-		height: 32px;
-		font-size: 1.4rem;
-		background-color: transparent;
-		border: 1px solid $stepcolor;
-		color: $stepcolor;
-		font-weight: 500;
-		border-radius: 100%;
-	}
-	&__active {
-		background-color: $stepcolor;
-		color: $grenadeblue;
-	}
-}
-
-.app-form {
-	display: flex;
-	flex-direction: column;
-	background-color: #fff;
-	margin: 2em;
-	margin-top: 8em;
-	padding: 2em;
-	border-radius: 10px;
-	&__heading {
-		font-size: 2.4rem;
-		color: $grenadeblue;
-		margin-bottom: 0.4em;
-	}
-	&__text {
-		font-size: 1.4rem;
-		line-height: 1.5em;
-		color: $subtext;
-		margin-bottom: 1em;
-	}
-}
-.input {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 1em;
-	&__label {
-		font-size: 1.2rem;
-		color: $grenadeblue;
-		margin-bottom: 0.4em;
-	}
-	&__text {
-		font-size: 1.4rem;
-		padding: 0.7em 1.2em;
-		border: 1px solid rgb(209, 209, 209);
-		border-radius: 3px;
-		font-weight: 500;
-		::placeholder {
-			color: rgb(209, 209, 209);
+	.app-form {
+		padding: 2.5em;
+		&__heading {
+			font-size: 2.6rem;
+		}
+		&__text {
+			font-size: 1.6rem;
 		}
 	}
-}
-.bottom-panel {
-	position: sticky;
-	top: 100%;
-	width: 100%;
-	background-color: #fff;
-	padding: 1em 2em;
-	display: flex;
-	justify-content: flex-end;
-	&__btn {
-		font-size: 1.4rem;
-		padding: 0.8em 1.2em;
-		border-radius: 5px;
-		text-decoration: none;
-		font-weight: 500;
-		color: #fff;
-		background-color: $grenadeblue;
-	}
-	&__text-btn {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-right: auto;
-		text-decoration: none;
-		font-size: 1.4rem;
-		color: $subtext;
-	}
-}
-.plan-card {
-	display: flex;
-	align-items: flex-start;
-	padding: 1em;
-	border: 1px solid rgb(209, 209, 209);
-	border-radius: 5px;
-	margin-bottom: 1em;
-	&__text {
-		display: flex;
-		flex-direction: column;
-		gap: 0.8em;
-		margin-left: 1em;
-	}
-	&__title {
-		font-size: 1.4rem;
-		color: $grenadeblue;
-	}
-	&__price {
-		color: $subtext;
-		font-size: 1.2rem;
-	}
-	&__free {
-		color: $grenadeblue;
-		font-size: 1rem;
-	}
-	&.active {
-		border: 1px solid #7c75b1;
-		background-color: #f8f9fe;
-	}
-}
-.mode-switch {
-	background-color: $background;
-	padding: 1em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	&__text {
-		font-size: 1.2rem;
-		font-weight: 500;
-		&--month {
-			color: $grenadeblue;
+	.input {
+		&__label {
+			font-size: 1.4rem;
 		}
-		&--year {
-			color: $subtext;
+		&__text {
+			font-size: 1.6rem;
 		}
 	}
-	&__button {
-		margin: 0 2em;
-		display: flex;
-		width: 18%;
-		padding: 0.4em;
-		border-radius: 16px;
-		background-color: $grenadeblue;
-	}
-	&__button-circle {
-		background-color: #fff;
-		border-radius: 50%;
-		width: 12px;
-		height: 12px;
-	}
-}
-.add-on {
-	display: flex;
-	align-items: center;
-	padding: 1em;
-	border: 1px solid rgb(209, 209, 209);
-	border-radius: 5px;
-	margin-bottom: 1em;
-	&.active {
-		border: 1px solid #7c75b1;
-		background-color: #f8f9fe;
-		.add-on__checkbox {
-			border: 0.5px solid transparent;
-			background-color: #493cfe;
-			svg {
-				display: block;
-			}
+	.bottom-panel {
+		&__btn {
+			font-size: 1.6rem;
+		}
+		&__text-btn {
+			font-size: 1.6rem;
 		}
 	}
-	&__checkbox {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 20px;
-		height: 20px;
-		margin-right: 1em;
-		border: 0.5px solid $subtext;
-		border-radius: 4px;
-		svg {
-			display: none;
+	.plan-card {
+		&__title {
+			font-size: 1.6rem;
+		}
+		&__price {
+			font-size: 1.4rem;
+		}
+		&__image {
+			width: 50px;
+		}
+		&__free {
+			font-size: 1.2rem;
 		}
 	}
-	&__text {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5em;
+	.mode-switch {
+		&__text {
+			font-size: 1.4rem;
+		}
+		&__button {
+			width: 45px;
+		}
+		&__button-circle {
+			width: 14px;
+			height: 14px;
+		}
 	}
-	&__title {
-		color: $grenadeblue;
-		font-size: 1.2rem;
+	.add-on {
+		&__checkbox {
+			width: 25px;
+			height: 25px;
+		}
+		&__title {
+			font-size: 1.4rem;
+		}
+		&__subtitle {
+			font-size: 1.2rem;
+		}
+		&__price {
+			font-size: 1.2rem;
+		}
 	}
-	&__subtitle {
-		color: $subtext;
-		font-size: 1rem;
-	}
-	&__price {
-		margin-left: auto;
+	.checkout {
+		&__title {
+			font-size: 1.6rem;
+		}
+		&__link {
+			font-size: 1.6rem;
+		}
+		&__price {
+			font-size: 1.6rem;
+		}
+		&__total-text {
+			font-size: 1.6rem;
+		}
+		&__list-text {
+			font-size: 1.6rem;
+		}
+		&__list-price {
+			font-size: 1.6rem;
+		}
+		&__total-price {
+			font-size: 1.6rem;
+		}
 	}
 }

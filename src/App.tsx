@@ -4,8 +4,10 @@ import FormStepOne from './pages/FormStepOne'
 import FormStepTwo from './pages/FormStepTwo'
 import FormStepThree from './pages/FormStepThree'
 import FormStepFour from './pages/FormStepFour'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const App = () => {
+	const queryClient = new QueryClient()
 	const router = createBrowserRouter([
 		{
 			path: '/',
@@ -35,7 +37,10 @@ const App = () => {
 		},
 	])
 
-	return <RouterProvider router={router}></RouterProvider>
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router}></RouterProvider>
+		</QueryClientProvider>
+	)
 }
-
 export default App

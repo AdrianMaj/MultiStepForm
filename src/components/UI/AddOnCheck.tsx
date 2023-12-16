@@ -23,7 +23,6 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 			setIsActive(true)
 		}
 	}
-	console.log(selectedAddOns)
 
 	return (
 		<div onClick={toggleAddOn} className={`add-on ${isActive ? 'active' : ''}`}>
