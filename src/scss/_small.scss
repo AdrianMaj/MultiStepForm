@@ -1,5 +1,5 @@
 @use 'variables' as *;
-@media (min-width: 375px) {
+@media (min-width: 576px) {
 	.steps {
 		padding-top: 3em;
 		padding-bottom: 8em;
@@ -9,53 +9,53 @@
 			font-size: 1.8rem;
 		}
 	}
-	.error{
-		font-size: 1.6rem;
-	}
 
 	.app-form {
 		margin-top: 10em;
 		padding: 2.5em;
 		&__heading {
-			font-size: 2.6rem;
+			font-size: 2.8rem;
 		}
 		&__text {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
+	}
+	.error {
+		font-size: 1.8rem;
 	}
 	.input {
 		&__label {
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 		}
 		&__text {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 	}
 	.bottom-panel {
 		&__btn {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__text-btn {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 	}
 	.plan-card {
 		&__title {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__price {
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 		}
 		&__image {
 			width: 50px;
 		}
 		&__free {
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 		}
 	}
 	.mode-switch {
 		&__text {
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 		}
 		&__button {
 			width: 45px;
@@ -71,36 +71,36 @@
 			height: 25px;
 		}
 		&__title {
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 		}
 		&__subtitle {
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 		}
 		&__price {
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 		}
 	}
 	.checkout {
 		&__title {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__link {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__price {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__total-text {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__list-text {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__list-price {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 		&__total-price {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 	}
 }

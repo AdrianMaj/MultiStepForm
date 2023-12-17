@@ -7,10 +7,12 @@ const FormStepFour = () => {
 	return (
 		<>
 			<StepNumber pageNumber={4} />
-			<AppForm title="Finishing up" text="Double-check everything before confirming">
-				<Checkout />
-			</AppForm>
-			<BottomPanel valdiationFn={() => true} stepNumber={4} />
+			<div className="container">
+				<AppForm title="Finishing up" text="Double-check everything before confirming">
+					<Checkout />
+				</AppForm>
+				<BottomPanel valdiationFn={() => true} stepNumber={4} />
+			</div>
 		</>
 	)
 }

@@ -72,13 +72,15 @@ const FormStepOne = () => {
 	return (
 		<>
 			<StepNumber pageNumber={1} />
-			<AppForm text="Please provide your name, email address, and phone number" title="Personal info">
-				<Input inputType="text" identifier="name" placeholder="e.g. Stephen King" label="Name" />
-				<Input inputType="email" identifier="email" placeholder="e.g. stephenking@lorem.com" label="Email Address" />
-				<Input inputType="tel" identifier="phoneNumber" placeholder="e.g. +1 234 567 890" label="Phone number" />
-				{errorMessage !== '' && <p className="error">{errorMessage}</p>}
-			</AppForm>
-			<BottomPanel valdiationFn={handleValidation} stepNumber={1} />
+			
+				<AppForm text="Please provide your name, email address, and phone number" title="Personal info">
+					<Input inputType="text" identifier="name" placeholder="e.g. Stephen King" label="Name" />
+					<Input inputType="email" identifier="email" placeholder="e.g. stephenking@lorem.com" label="Email Address" />
+					<Input inputType="tel" identifier="phoneNumber" placeholder="e.g. +1 234 567 890" label="Phone number" />
+					{errorMessage !== '' && <p className="error">{errorMessage}</p>}
+				</AppForm>
+				<BottomPanel valdiationFn={handleValidation} stepNumber={1} />
+			</div>
 		</>
 	)
 }

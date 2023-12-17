@@ -1,0 +1,175 @@
+@use 'variables' as *;
+@media (min-width: 1200px) {
+	#root {
+		background-color: $background;
+		min-height: 100svh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.root {
+		min-width: 1100px;
+		max-width: 1400px;
+		width: 90%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		border-radius: 20px;
+		display: flex;
+		flex-direction: row;
+		// flex-wrap: wrap;
+		padding: 3em;
+		min-height: auto;
+	}
+	.steps {
+		justify-content: flex-start;
+		background-image: url('../assets/images/bg-sidebar-desktop.svg');
+		border-radius: 20px;
+		position: static;
+		margin: 0;
+		width: 30%;
+		flex-direction: column;
+		padding-top: 0;
+		padding: 4em 2em;
+		padding-bottom: 35em;
+		&__step {
+			display: flex;
+			align-items: center;
+		}
+		&__step-text {
+			display: flex;
+			gap: 0.6em;
+			flex-direction: column;
+		}
+		&__step-title {
+			display: block;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 1px;
+			font-size: 1.6rem;
+			color: #fff;
+		}
+		&__step-name {
+			display: block;
+			font-size: 1.5rem;
+			color: $subtext;
+			text-transform: uppercase;
+		}
+		&__step-indicator {
+			margin: 0.6em;
+			width: 50px;
+			height: 50px;
+			font-size: 2.2rem;
+		}
+	}
+	.container {
+		display: flex;
+		flex-direction: column;
+		background-color: #fff;
+		margin: 0 auto;
+		height: auto;
+	}
+
+	.app-form {
+		margin: 0;
+		margin-top: 2em;
+		margin-left: 8em;
+		margin-right: 8em;
+		width: auto;
+		padding: 2.5em;
+		&__heading {
+			font-size: 4rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+	.error {
+		font-size: 2.2rem;
+	}
+	.input {
+		&__label {
+			font-size: 2rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+	.bottom-panel {
+		margin-top: auto;
+		margin-left: auto;
+		&__btn {
+			font-size: 2.2rem;
+		}
+		&__text-btn {
+			font-size: 2.2rem;
+		}
+	}
+	.plan-card {
+		&__title {
+			font-size: 2.2rem;
+		}
+		&__price {
+			font-size: 2rem;
+		}
+		&__image {
+			width: 60px;
+		}
+		&__free {
+			font-size: 1.8rem;
+		}
+	}
+	.mode-switch {
+		padding: 2em;
+		&__text {
+			font-size: 2rem;
+		}
+		&__button {
+			width: 45px;
+		}
+		&__button-circle {
+			width: 14px;
+			height: 14px;
+		}
+	}
+	.add-on {
+		&__checkbox {
+			width: 25px;
+			height: 25px;
+		}
+		&__title {
+			font-size: 2rem;
+		}
+		&__subtitle {
+			font-size: 1.8rem;
+		}
+		&__price {
+			font-size: 1.8rem;
+		}
+	}
+	.checkout {
+		&__title {
+			font-size: 2.2rem;
+		}
+		&__link {
+			font-size: 2.2rem;
+		}
+		&__price {
+			font-size: 2.2rem;
+		}
+		&__total-text {
+			font-size: 2.2rem;
+		}
+		&__list-text {
+			font-size: 2.2rem;
+		}
+		&__list-price {
+			font-size: 2.2rem;
+		}
+		&__total-price {
+			font-size: 2.2rem;
+		}
+	}
+}
