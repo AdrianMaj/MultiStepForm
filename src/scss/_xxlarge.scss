@@ -1,38 +1,8 @@
 @use 'variables' as *;
-@media (min-width: 1200px) {
-	#root {
-		background-color: $background;
-		min-height: 100svh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.root {
-		min-width: 1100px;
-		max-width: 1400px;
-		width: 90%;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		background-color: #fff;
-		border-radius: 20px;
-		display: flex;
-		flex-direction: row;
-		padding: 2em;
-		min-height: auto;
-	}
+@media (min-width: 1400px) {
 	.steps {
-		justify-content: flex-start;
-		background-image: url('../assets/images/bg-sidebar-desktop.svg');
-		border-radius: 20px;
-		position: static;
-		margin: 0;
-		width: 30%;
-		flex-direction: column;
-		padding-top: 0;
-		padding: 3em 2em;
-		padding-bottom: 30em;
+		padding: 4em 2em;
+		padding-bottom: 35em;
 		&__step {
 			display: flex;
 			align-items: center;
@@ -41,19 +11,18 @@
 			display: flex;
 			gap: 0.6em;
 			flex-direction: column;
-			margin-left: 1em;
 		}
 		&__step-title {
 			display: block;
 			text-transform: uppercase;
 			font-weight: bold;
 			letter-spacing: 1px;
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 			color: #fff;
 		}
 		&__step-name {
 			display: block;
-			font-size: 1.4rem;
+			font-size: 1.5rem;
 			color: $subtext;
 			text-transform: uppercase;
 		}
@@ -63,7 +32,7 @@
 			height: 50px;
 		}
 		&__step-indicator-text {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 	}
 	.container {
@@ -82,31 +51,31 @@
 		width: 100%;
 		padding: 2.5em;
 		&__heading {
-			font-size: 3.8rem;
+			font-size: 4rem;
 		}
 		&__text {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 	}
 	.error {
-		font-size: 2rem;
+		font-size: 2.2rem;
 	}
 	.input {
 		&__label {
 			font-size: 2rem;
 		}
 		&__text {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 	}
 	.bottom-panel {
 		margin-top: auto;
 		margin-left: auto;
 		&__btn {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 		&__text-btn {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 	}
 	.plan-container {
@@ -122,7 +91,7 @@
 			margin-left: 0;
 		}
 		&__title {
-			font-size: 2rem;
+			font-size: 2.2rem;
 			margin-bottom: 0.2em;
 		}
 		&__price {
@@ -172,10 +141,10 @@
 	.checkout {
 		padding: 3em;
 		&__title {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 		&__link {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 		&__price {
 			font-size: 2rem;
@@ -187,16 +156,16 @@
 			padding: 3em;
 		}
 		&__total-text {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 		&__list-text {
-			font-size: 2rem;
+			font-size: 2.2rem;
 		}
 		&__list-price {
 			font-size: 2rem;
 		}
 		&__total-price {
-			font-size: 2.4rem;
+			font-size: 2.6rem;
 		}
 	}
 }

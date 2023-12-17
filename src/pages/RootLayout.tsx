@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 const RootLayout: React.FC = () => {
 	return (
-		<div className="root">
+		<div layout className="root">
 			<Outlet />
 		</div>
 	)

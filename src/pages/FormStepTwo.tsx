@@ -23,9 +23,11 @@ const FormStepOne = () => {
 			<StepNumber pageNumber={2} />
 			<div className="container">
 				<AppForm title="Select your plan" text="You have the option of monthly or yearly billing.">
-					<PlanCard imageName="icon-arcade.svg" title="Arcade" price={9} alt="Orange photo of joystick" />
-					<PlanCard imageName="icon-advanced.svg" title="Advanced" price={12} alt="Red photo of gamepad" />
-					<PlanCard imageName="icon-pro.svg" title="Pro" price={15} alt="Blue photo of gamepad" />
+					<div className="plan-container">
+						<PlanCard imageName="icon-arcade.svg" title="Arcade" price={9} alt="Orange photo of joystick" />
+						<PlanCard imageName="icon-advanced.svg" title="Advanced" price={12} alt="Red photo of gamepad" />
+						<PlanCard imageName="icon-pro.svg" title="Pro" price={15} alt="Blue photo of gamepad" />
+					</div>
 					<ModeSwitch />
 					{error !== '' && <p className="error">{error}</p>}
 				</AppForm>

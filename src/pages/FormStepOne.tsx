@@ -72,7 +72,7 @@ const FormStepOne = () => {
 	return (
 		<>
 			<StepNumber pageNumber={1} />
-			
+			<div className="container">
 				<AppForm text="Please provide your name, email address, and phone number" title="Personal info">
 					<Input inputType="text" identifier="name" placeholder="e.g. Stephen King" label="Name" />
 					<Input inputType="email" identifier="email" placeholder="e.g. stephenking@lorem.com" label="Email Address" />
