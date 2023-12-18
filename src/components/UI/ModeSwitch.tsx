@@ -11,14 +11,20 @@ const ModeSwitch = () => {
 
 	return (
 		<div className="mode-switch">
-			<p className="mode-switch__text mode-switch__text--month">Monthly</p>
-			<div
-				style={{ justifyContent: isYearly ? 'flex-end' : 'flex-start' }}
-				className="mode-switch__button"
-				onClick={handleSwitchMode}>
-				<motion.div className="mode-switch__button-circle"></motion.div>
+			<motion.p className="mode-switch__text mode-switch__text" animate={{ color: isYearly ? '#a5a5ac' : '#00103f' }}>
+				Monthly
+			</motion.p>
+			<div className="mode-switch__button" onClick={handleSwitchMode}>
+				{!isYearly && <motion.div layoutId="switch" className="mode-switch__button-circle"></motion.div>}
+				{isYearly && (
+					<motion.div
+						layoutId="switch"
+						className="mode-switch__button-circle mode-switch__button-circle--right"></motion.div>
+				)}
 			</div>
-			<p className="mode-switch__text mode-switch__text--year">Yearly</p>
+			<motion.p className="mode-switch__text mode-switch__text" animate={{ color: !isYearly ? '#a5a5ac' : '#00103f' }}>
+				Yearly
+			</motion.p>
 		</div>
 	)
 }

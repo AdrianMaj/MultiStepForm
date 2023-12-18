@@ -3,10 +3,6 @@ import React from 'react'
 
 const Step: React.FC<{ pageNumber: number; stepNumber: number; text: string }> = props => {
 	const isActive: boolean = props.pageNumber === props.stepNumber
-	// const navigate = useNavigate()
-	// const handleNavigate = () => {
-	// 	navigate(`/step-${props.stepNumber}`)
-	// }
 	return (
 		<div className="steps__step">
 			<motion.div

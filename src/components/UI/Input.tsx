@@ -8,11 +8,11 @@ type InputPropsType = {
 	placeholder: string
 	label: string
 	identifier: string
-	showError: boolean
+	errorMessage: string
+	isInvalid: boolean
 }
 
 const Input: React.FC<InputPropsType> = props => {
-	console.log(props.identifier + props.showError)
 	const inputValue = useAppSelector(state => state.planMode.inputValues[props.identifier])
 	const inputRef = useRef<HTMLInputElement>(null)
 	const dispatch = useAppDispatch()
@@ -21,12 +21,18 @@ const Input: React.FC<InputPropsType> = props => {
 	}
 	return (
 		<div className="input">
-			<label className="input__label" htmlFor={props.label}>
-				{props.label}
-			</label>
+			<div className="input__container">
+				<label className="input__label" htmlFor={props.label}>
+					{props.label}
+				</label>
+				{props.isInvalid && <p className="input__error">{props.errorMessage}</p>}
+			</div>
 			<motion.input
 				whileFocus={{
 					border: '1px solid #585190',
+				}}
+				animate={{
+					border: props.isInvalid ? '1px solid #c04253' : '1px solid #d1d1d1',
 				}}
 				className="input__text"
 				id={props.label}
@@ -36,11 +42,6 @@ const Input: React.FC<InputPropsType> = props => {
 				value={inputValue}
 				onChange={handleChangeValue}
 			/>
-			{props.showError && (
-				<p className="input__error">
-					Invalid {props.identifier === 'phoneNumber' ? 'phone number.' : props.identifier + '.'}
-				</p>
-			)}
 		</div>
 	)
 }

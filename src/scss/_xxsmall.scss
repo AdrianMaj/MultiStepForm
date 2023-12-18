@@ -137,16 +137,25 @@ body {
 .input {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 1em;
+	margin-bottom: 2.5em;
 	&__label {
 		font-size: 1.2rem;
 		color: $grenadeblue;
 		margin-bottom: 0.4em;
 	}
+	&__container {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__error {
+		font-weight: 500;
+		color: #c04253;
+		font-size: 1.2rem;
+	}
 	&__text {
 		font-size: 1.4rem;
 		padding: 0.7em 1.2em;
-		border: 1px solid rgb(209, 209, 209);
+		border: 1px solid #d1d1d1;
 		border-radius: 3px;
 		font-weight: 500;
 		outline: 1px solid transparent;
@@ -242,12 +251,16 @@ body {
 		padding: 0.4em;
 		border-radius: 16px;
 		background-color: $grenadeblue;
+		cursor: pointer;
 	}
 	&__button-circle {
 		background-color: #fff;
 		border-radius: 50%;
 		width: 12px;
 		height: 12px;
+		&--right {
+			margin-left: auto;
+		}
 	}
 }
 .add-on {

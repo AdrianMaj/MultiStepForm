@@ -8,45 +8,39 @@ import { useState } from 'react'
 
 const FormStepOne = () => {
 	const inputs = useAppSelector(state => state.planMode.inputValues)
-	const [errorMsg, setErrorMsg] = useState({
-		name: false,
-		email: false,
-		phone: false,
+	const [errorMessages, setErrorMessages] = useState({
+		name: '',
+		email: '',
+		phoneNumber: '',
+	})
+	const [errors, setErrors] = useState({
+		name: true,
+		email: true,
+		phoneNumber: true,
 	})
 
 	const handleValidation = () => {
-		if (
-			validateName(inputs.name) === true &&
-			validateEmail(inputs.email) === true &&
-			validatePhone(inputs.phoneNumber) === true
-		) {
-			return true
-		} else if (
-			validateEmail(inputs.email) !== true ||
-			validateName(inputs.name) !== true ||
-			validatePhone(inputs.phone) !== true
-		) {
-			if (validateName(inputs.name) !== true) {
-				setErrorMsg(prevState => ({
-					...prevState,
-					name: true,
-				}))
-			}
-			if (validateEmail(inputs.email) !== true) {
-				setErrorMsg(prevState => ({
-					...prevState,
-					email: true,
-				}))
-			}
-			if (validatePhone(inputs.phone) !== true) {
-				setErrorMsg(prevState => ({
-					...prevState,
-					phone: true,
-				}))
-			}
+		const newErrors = {
+			name: !validateName(inputs.name),
+			email: !validateEmail(inputs.email),
+			phoneNumber: !validatePhone(inputs.phoneNumber),
+		}
+		setErrors(newErrors)
+
+		const newErrorMessages = {
+			name: newErrors.name ? 'Invalid name' : '',
+			email: newErrors.email ? 'Invalid email' : '',
+			phoneNumber: newErrors.phoneNumber ? 'Invalid phone number' : '',
+		}
+
+		setErrorMessages(newErrorMessages)
+
+		const hasAnyError = Object.values(newErrors).some(error => error === true)
+
+		if (hasAnyError) {
 			return false
 		}
-		return false
+		return true
 	}
 	return (
 		<>
@@ -58,21 +52,24 @@ const FormStepOne = () => {
 						identifier="name"
 						placeholder="e.g. Stephen King"
 						label="Name"
-						showError={errorMsg.name}
+						isInvalid={errors.name}
+						errorMessage={errorMessages.name}
 					/>
 					<Input
 						inputType="email"
 						identifier="email"
 						placeholder="e.g. stephenking@lorem.com"
 						label="Email Address"
-						showError={errorMsg.email}
+						isInvalid={errors.email}
+						errorMessage={errorMessages.email}
 					/>
 					<Input
 						inputType="tel"
 						identifier="phoneNumber"
 						placeholder="e.g. +1 234 567 890"
 						label="Phone number"
-						showError={errorMsg.phone}
+						isInvalid={errors.phoneNumber}
+						errorMessage={errorMessages.phoneNumber}
 					/>
 				</AppForm>
 				<BottomPanel valdiationFn={handleValidation} stepNumber={1} />
