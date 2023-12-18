@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useAppSelector } from '../../hooks/hooks'
 import { Link } from 'react-router-dom'
 
@@ -8,6 +9,7 @@ const Checkout = () => {
 	data.planAddOns.forEach(addOn => {
 		totalPrice += addOn.price
 	})
+	const MotionLink = motion(Link)
 	return (
 		<>
 			<div className="checkout">
@@ -16,9 +18,14 @@ const Checkout = () => {
 						<h3 className="checkout__title">
 							{data.planVersion.title} ({data.isYearly ? 'Yearly' : 'Monthly'})
 						</h3>
-						<Link className="checkout__link" to="/step-2">
+						<MotionLink
+							whileHover={{
+								color: '#3C37A0',
+							}}
+							className="checkout__link"
+							to="/step-2">
 							Change
-						</Link>
+						</MotionLink>
 					</div>
 					<div className="checkout__price">
 						${data.planVersion.price}/{data.isYearly ? 'yr' : 'mo'}

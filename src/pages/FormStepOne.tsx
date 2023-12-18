@@ -8,7 +8,11 @@ import { useState } from 'react'
 
 const FormStepOne = () => {
 	const inputs = useAppSelector(state => state.planMode.inputValues)
-	const [errorMessage, setErrorMessage] = useState('')
+	const [errorMsg, setErrorMsg] = useState({
+		name: false,
+		email: false,
+		phone: false,
+	})
 
 	const handleValidation = () => {
 		if (
@@ -18,53 +22,28 @@ const FormStepOne = () => {
 		) {
 			return true
 		} else if (
-			validateName(inputs.name) !== true &&
-			validateEmail(inputs.email) !== true &&
-			validatePhone(inputs.phoneNumber) !== true
+			validateEmail(inputs.email) !== true ||
+			validateName(inputs.name) !== true ||
+			validatePhone(inputs.phone) !== true
 		) {
-			setErrorMessage('Invalid: Name, E-mail and Phone number')
-			return false
-		} else if (
-			validateName(inputs.name) === true &&
-			validateEmail(inputs.email) !== true &&
-			validatePhone(inputs.phoneNumber) !== true
-		) {
-			setErrorMessage('Invalid: E-mail and Phone number')
-			return false
-		} else if (
-			validateName(inputs.name) === true &&
-			validateEmail(inputs.email) === true &&
-			validatePhone(inputs.phoneNumber) !== true
-		) {
-			setErrorMessage('Invalid Phone number')
-			return false
-		} else if (
-			validateName(inputs.name) === true &&
-			validateEmail(inputs.email) !== true &&
-			validatePhone(inputs.phoneNumber) === true
-		) {
-			setErrorMessage('Invalid Email')
-			return false
-		} else if (
-			validateName(inputs.name) !== true &&
-			validateEmail(inputs.email) !== true &&
-			validatePhone(inputs.phoneNumber) === true
-		) {
-			setErrorMessage('Invalid: Name and E-mail')
-			return false
-		} else if (
-			validateName(inputs.name) !== true &&
-			validateEmail(inputs.email) === true &&
-			validatePhone(inputs.phoneNumber) === true
-		) {
-			setErrorMessage('Invalid Name')
-			return false
-		} else if (
-			validateName(inputs.name) !== true &&
-			validateEmail(inputs.email) === true &&
-			validatePhone(inputs.phoneNumber) !== true
-		) {
-			setErrorMessage('Invalid: Name and Phone number')
+			if (validateName(inputs.name) !== true) {
+				setErrorMsg(prevState => ({
+					...prevState,
+					name: true,
+				}))
+			}
+			if (validateEmail(inputs.email) !== true) {
+				setErrorMsg(prevState => ({
+					...prevState,
+					email: true,
+				}))
+			}
+			if (validatePhone(inputs.phone) !== true) {
+				setErrorMsg(prevState => ({
+					...prevState,
+					phone: true,
+				}))
+			}
 			return false
 		}
 		return false
@@ -74,10 +53,27 @@ const FormStepOne = () => {
 			<StepNumber pageNumber={1} />
 			<div className="container">
 				<AppForm text="Please provide your name, email address, and phone number" title="Personal info">
-					<Input inputType="text" identifier="name" placeholder="e.g. Stephen King" label="Name" />
-					<Input inputType="email" identifier="email" placeholder="e.g. stephenking@lorem.com" label="Email Address" />
-					<Input inputType="tel" identifier="phoneNumber" placeholder="e.g. +1 234 567 890" label="Phone number" />
-					{errorMessage !== '' && <p className="error">{errorMessage}</p>}
+					<Input
+						inputType="text"
+						identifier="name"
+						placeholder="e.g. Stephen King"
+						label="Name"
+						showError={errorMsg.name}
+					/>
+					<Input
+						inputType="email"
+						identifier="email"
+						placeholder="e.g. stephenking@lorem.com"
+						label="Email Address"
+						showError={errorMsg.email}
+					/>
+					<Input
+						inputType="tel"
+						identifier="phoneNumber"
+						placeholder="e.g. +1 234 567 890"
+						label="Phone number"
+						showError={errorMsg.phone}
+					/>
 				</AppForm>
 				<BottomPanel valdiationFn={handleValidation} stepNumber={1} />
 			</div>

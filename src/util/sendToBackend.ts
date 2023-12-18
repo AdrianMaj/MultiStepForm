@@ -4,7 +4,7 @@ const sendToBackend = async (formData: {
 	planAddOns: { title: string; price: number }[]
 	inputValues: { [key: string]: string }
 }) => {
-	const response = await fetch(`https://multistepform-205c9-default-rtdb.firebaseio.com/`, {
+	const response = await fetch(`https://multistepform-205c9-default-rtdb.firebaseio.com/data.json`, {
 		method: 'POST',
 		body: JSON.stringify(formData),
 		headers: {

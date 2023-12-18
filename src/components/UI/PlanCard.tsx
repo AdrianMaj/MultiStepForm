@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import { planModeActions } from '../store/PlanModeSlice'
 
@@ -18,14 +19,23 @@ const PlanCard: React.FC<{
 	}
 
 	return (
-		<div onClick={handleChoose} className={`plan-card ${planVersionTitle === props.title ? 'active' : ''}`}>
+		<motion.div
+			whileHover={{
+				border: '2px solid #7c75b1',
+			}}
+			animate={{
+				backgroundColor: planVersionTitle === props.title ? '#f8f9fe' : '#fff',
+				border: planVersionTitle === props.title ? '2px solid #7c75b1' : '2px solid #d1d1d1',
+			}}
+			onClick={handleChoose}
+			className="plan-card">
 			<img className="plan-card__image" src={`src/assets/images/${props.imageName}`} alt={props.alt} />
 			<div className="plan-card__text">
 				<h3 className="plan-card__title">{props.title}</h3>
 				<p className="plan-card__price">{`$${price}/${isYearly ? 'yr' : 'mo'}`}</p>
 				{isYearly && <p className="plan-card__free">2 months free</p>}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

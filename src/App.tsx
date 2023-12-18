@@ -5,6 +5,7 @@ import FormStepTwo from './pages/FormStepTwo'
 import FormStepThree from './pages/FormStepThree'
 import FormStepFour from './pages/FormStepFour'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Success from './pages/Success'
 
 const App = () => {
 	const queryClient = new QueryClient()
@@ -32,6 +33,10 @@ const App = () => {
 				{
 					path: 'step-4',
 					element: <FormStepFour />,
+				},
+				{
+					path: 'success',
+					element: <Success />,
 				},
 			],
 		},

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import { planModeActions } from '../store/PlanModeSlice'
 
@@ -21,9 +22,26 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 	}
 
 	return (
-		<div onClick={toggleAddOn} className={`add-on ${existingAddOn ? 'active' : ''}`}>
-			<div className="add-on__checkbox active">
-				<svg
+		<motion.div
+			whileHover={{
+				border: '2px solid #7c75b1',
+			}}
+			animate={{
+				border: existingAddOn ? '2px solid #7c75b1' : '2px solid #d1d1d1',
+				backgroundColor: existingAddOn ? '#f8f9fe' : '#fff',
+			}}
+			onClick={toggleAddOn}
+			className="add-on">
+			<motion.div
+				animate={{
+					backgroundColor: existingAddOn ? '#493cfe' : '#fff',
+					border: existingAddOn ? '0.5px solid transparent' : '0.5px solid #a5a5ac',
+				}}
+				className="add-on__checkbox">
+				<motion.svg
+					animate={{
+						display: existingAddOn ? 'block' : 'none',
+					}}
 					xmlns="http://www.w3.org/2000/svg"
 					className="icon icon-tabler icon-tabler-check"
 					width="20"
@@ -36,8 +54,8 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 					strokeLinejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 					<path d="M5 12l5 5l10 -10" />
-				</svg>
-			</div>
+				</motion.svg>
+			</motion.div>
 			<div className="add-on__text">
 				<h3 className="add-on__title">{props.title}</h3>
 				<p className="add-on__subtitle">{props.text}</p>
@@ -45,7 +63,7 @@ const AddOnCheck: React.FC<{ title: string; text: string; price: number }> = pro
 			<div className="add-on__price">
 				+${price}/{isYearly ? 'yr' : 'mo'}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
