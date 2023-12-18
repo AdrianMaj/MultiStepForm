@@ -29,7 +29,7 @@ const PlanCard: React.FC<{
 			}}
 			onClick={handleChoose}
 			className="plan-card">
-			<img className="plan-card__image" src={`src/assets/images/${props.imageName}`} alt={props.alt} />
+			<img className="plan-card__image" src={`/images/${props.imageName}`} alt={props.alt} />
 			<div className="plan-card__text">
 				<h3 className="plan-card__title">{props.title}</h3>
 				<p className="plan-card__price">{`$${price}/${isYearly ? 'yr' : 'mo'}`}</p>

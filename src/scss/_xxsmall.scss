@@ -1,19 +1,4 @@
 @use './variables' as *;
-@font-face {
-	font-family: 'Ubuntu';
-	font-weight: bold;
-	src: url('./src/assets/fonts/Ubuntu-Bold.ttf');
-}
-@font-face {
-	font-family: 'Ubuntu';
-	font-weight: 500;
-	src: url('./src/assets/fonts/Ubuntu-Medium.ttf');
-}
-@font-face {
-	font-family: 'Ubuntu';
-	font-weight: normal;
-	src: url('./src/assets/fonts/Ubuntu-Regular.ttf');
-}
 
 * {
 	margin: 0;
@@ -48,7 +33,7 @@ body {
 	padding-top: 2em;
 	padding-bottom: 8em;
 	background-size: cover;
-	background-image: url('../assets/images/bg-sidebar-mobile.svg');
+	background-image: url('/images/bg-sidebar-mobile.svg');
 
 	&__step-title {
 		display: none;
