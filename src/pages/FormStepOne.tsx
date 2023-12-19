@@ -14,9 +14,9 @@ const FormStepOne = () => {
 		phoneNumber: '',
 	})
 	const [errors, setErrors] = useState({
-		name: true,
-		email: true,
-		phoneNumber: true,
+		name: false,
+		email: false,
+		phoneNumber: false,
 	})
 
 	const handleValidation = () => {

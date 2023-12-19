@@ -34,9 +34,6 @@ const Input: React.FC<InputPropsType> = props => {
 				animate={{
 					border: props.isInvalid ? '1px solid #c04253' : '1px solid #d1d1d1',
 				}}
-				initial={{
-					border: '1px solid #d1d1d1',
-				}}
 				className="input__text"
 				id={props.label}
 				ref={inputRef}
