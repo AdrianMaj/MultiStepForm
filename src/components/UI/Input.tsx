@@ -22,8 +22,8 @@ const Input: React.FC<InputPropsType> = props => {
 	return (
 		<div className="input">
 			<div className="input__container">
-				<label className="input__label" htmlFor={props.label}>
-					{props.identifier}
+				<label className="input__label" htmlFor={props.identifier}>
+					{props.label}
 				</label>
 				{props.isInvalid && <p className="input__error">{props.errorMessage}</p>}
 			</div>
