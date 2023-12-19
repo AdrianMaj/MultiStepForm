@@ -23,7 +23,7 @@ const Input: React.FC<InputPropsType> = props => {
 		<div className="input">
 			<div className="input__container">
 				<label className="input__label" htmlFor={props.label}>
-					{props.label}
+					{props.identifier}
 				</label>
 				{props.isInvalid && <p className="input__error">{props.errorMessage}</p>}
 			</div>
@@ -35,7 +35,7 @@ const Input: React.FC<InputPropsType> = props => {
 					border: props.isInvalid ? '1px solid #c04253' : '1px solid #d1d1d1',
 				}}
 				className="input__text"
-				id={props.label}
+				id={props.identifier}
 				ref={inputRef}
 				type={props.inputType}
 				placeholder={props.placeholder}
